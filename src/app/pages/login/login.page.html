@@ -1,0 +1,57 @@
+<ion-content>
+  <div class="container">
+    <div class="img"></div>
+    <div class="login-container">
+      <form (submit)="onSubmit()" [formGroup]="credentials">
+        <div class="input-div one">
+          <div class="i">
+            <ion-icon name="person"></ion-icon>
+          </div>
+          <div>
+            <input
+              type="text"
+              formControlName="username"
+              name="username"
+              required
+              placeholder="Username"
+              class="input"
+            />
+            <div
+              *ngIf="(username.dirty || username.touched) && username.errors"
+              class="errors"
+            >
+              <span *ngIf="username.errors?.required"
+                >Username is required</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="input-div two">
+          <div class="i">
+            <ion-icon name="lock-closed"></ion-icon>
+          </div>
+          <div>
+            <input
+              type="password"
+              formControlName="password"
+              name="password"
+              required
+              class="input"
+              placeholder="Password"
+            />
+            <div
+              *ngIf="(password.dirty || password.touched) && password.errors && password.errors"
+              class="errors"
+            >
+              <span *ngIf="password.errors?.required"
+                >Password is required</span
+              >
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+  </div>
+</ion-content>
